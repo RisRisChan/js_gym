@@ -11,16 +11,22 @@ const purchaseHistory = [
 // ここに関数定義のコードを書いてください。
 
 const calculateTotalAmountForUser = (purchases, userId) => {
+  if (!purchases) {
+    throw new Error("購入履歴が提供されていません");
+  }
+
+  if (!userId) {
+    throw new Error("ユーザーIDが提供されていません");
+  }
   return purchases
     .filter((item) => item.userId === userId)
-    .reduce((total, item) => total + item.amount, 0);
+    .reduce((total, item) => {
+      if (typeof item.amount !== "number") {
+        throw new Error("購入金額は数値でなければなりません");
+      }
+      return total + item.amount;
+    }, 0);
 };
-
-// const calculateTotalAmountForUser = (data, targetUserId) =>
-//   data.reduce((accu, { userId, amount }) => {
-//     accu[userId] = (accu[userId] || 0) + amount;
-//     return accu;
-//   }, {})[targetUserId];
 
 // 関数の実行
 // ここに関数の実行例を書いてください。
