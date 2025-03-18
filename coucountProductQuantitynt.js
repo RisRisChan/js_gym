@@ -1,3 +1,4 @@
+//不具合だらけの商品の数量カウント関数を修正しろ
 const orderList = [
   { product: "机", quantity: 2 },
   { product: "椅子", quantity: 4 },

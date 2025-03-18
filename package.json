@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint . --ext .js",
+    "ci": "npm run lint && npm run test:coverage"
   },
   "repository": {
     "type": "git",
@@ -19,6 +22,8 @@
   },
   "homepage": "https://github.com/RisRisChan/js_gym#readme",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "eslint": "^8.57.1",
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0"
   }
 }
